@@ -16,8 +16,13 @@ public class ThreeSearchController {
 	@Autowired
 	private ThreeSearchService threeSearchService;
 
-	@RequestMapping(value="/product/{name}/{category}/{condition}",method=RequestMethod.GET)
-	public List<Product> findByNameCategoryCondition(@PathVariable String name,@PathVariable String category,@PathVariable String condition){
-	return threeSearchService.findByNameAndCategoryAndCondition(name, category, condition);	
+	@RequestMapping(value="/product/{x}/{y}/{z}",method=RequestMethod.GET)
+	public List<Product> findBYXYZ(@PathVariable String x,@PathVariable String y,@PathVariable String z){
+		return threeSearchService.findByXYZ(x, y, z);
 	}
+	
+//	@RequestMapping(value="/product/{name}/{category}/{condition}",method=RequestMethod.GET)
+//	public List<Product> findByNameCategoryCondition(@PathVariable String name,@PathVariable String category,@PathVariable String condition){
+//	return threeSearchService.findByNameAndCategoryAndCondition(name, category, condition);	
+//	}
 }

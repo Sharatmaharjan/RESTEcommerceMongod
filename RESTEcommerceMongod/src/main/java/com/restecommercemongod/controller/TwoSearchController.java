@@ -16,18 +16,23 @@ public class TwoSearchController {
 @Autowired
 private TwoSearchService twoSearchService;
 
-	@RequestMapping(value="/product/name-{name}/category-{category}",method=RequestMethod.GET)
-	public List<Product> findByNameAndCategory(@PathVariable String name,@PathVariable String category){
-		return twoSearchService.findByNameAndCategory(name, category);
+	@RequestMapping(value="/product/{x}/{y}",method=RequestMethod.GET)
+	public List<Product> findByXAndY(@PathVariable String x,@PathVariable String y){
+		return twoSearchService.findByXAndY(x, y);
 	}
-	
-	@RequestMapping(value="/product/name-{name}/condition-{condition}",method=RequestMethod.GET)
-	public List<Product> findByNameAndCondition(@PathVariable String name,@PathVariable String condition){
-		return twoSearchService.findByNameAndCondition(name, condition);
-	}
-	
-	@RequestMapping(value="/product/category-{category}/condition-{condition}",method=RequestMethod.GET)
-	public List<Product> findByCategoryAndCondition(@PathVariable String category,@PathVariable String condition){
-		return twoSearchService.findByCategoryAndCondition(category, condition);
-	}
+
+//	@RequestMapping(value="/product/name-{name}/category-{category}",method=RequestMethod.GET)
+//	public List<Product> findByNameAndCategory(@PathVariable String name,@PathVariable String category){
+//		return twoSearchService.findByNameAndCategory(name, category);
+//	}
+//	
+//	@RequestMapping(value="/product/name-{name}/condition-{condition}",method=RequestMethod.GET)
+//	public List<Product> findByNameAndCondition(@PathVariable String name,@PathVariable String condition){
+//		return twoSearchService.findByNameAndCondition(name, condition);
+//	}
+//	
+//	@RequestMapping(value="/product/category-{category}/condition-{condition}",method=RequestMethod.GET)
+//	public List<Product> findByCategoryAndCondition(@PathVariable String category,@PathVariable String condition){
+//		return twoSearchService.findByCategoryAndCondition(category, condition);
+//	}
 }
