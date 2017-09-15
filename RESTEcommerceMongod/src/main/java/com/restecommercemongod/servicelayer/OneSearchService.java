@@ -13,22 +13,24 @@ public class OneSearchService {
 
 	@Autowired
 	private ProductRepo productRepo;
-	
-	public List<Product> findByX(String name){
-		List<Product> prod=productRepo.findByName(name);
-		List<Product> prod1=productRepo.findByCategory(name);
-		prod.addAll(prod1);
-		List<Product> prod2=productRepo.findByCondition(name);
-		prod.addAll(prod2);
+
+	public List<Product> findByX(String name) {
+		List<Product> prod = productRepo.findByName(name);
+		if (prod == null) {
+			prod = productRepo.findByCategory(name);
+			if (prod == null) {
+				prod = productRepo.findByCondition(name);
+			}
+		}
 		return prod;
 	}
-	
-//	public List<Product> findByCategory(String category){
-//		return productRepo.findByCategory(category);
-//	}
-//	
-//	public List<Product> findByCondition(String condition){
-//		return productRepo.findByCondition(condition);
-//	}
-	
+
+	// public List<Product> findByCategory(String category){
+	// return productRepo.findByCategory(category);
+	// }
+	//
+	// public List<Product> findByCondition(String condition){
+	// return productRepo.findByCondition(condition);
+	// }
+
 }

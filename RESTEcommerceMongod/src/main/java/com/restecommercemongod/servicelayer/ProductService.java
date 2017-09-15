@@ -26,10 +26,14 @@ public class ProductService {
 		productRepo.delete(id);
 	}
 
-	public void updateProduct(Product product,String id) {
+	public void updateProduct(Product product) {
 	productRepo.save(product);
 	}
 
+	public Product getById(String id){
+		return productRepo.findOne(id);
+	}
+	
 	public List<Product> findByCategory(String category) {
 		return productRepo.findByCategory(category);
 	}

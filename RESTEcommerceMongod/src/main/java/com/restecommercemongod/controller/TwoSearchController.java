@@ -17,7 +17,7 @@ public class TwoSearchController {
 private TwoSearchService twoSearchService;
 
 	@RequestMapping(value="/product/{x}/{y}",method=RequestMethod.GET)
-	public List<Product> findByXAndY(@PathVariable String x,@PathVariable String y){
+	public List<Product> findByXAndY(@PathVariable String x,@PathVariable String y) throws Exception{
 		return twoSearchService.findByXAndY(x, y);
 	}
 
